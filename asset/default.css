@@ -1,0 +1,241 @@
+/* 
+	CSS Created by Zuhdi Robbani
+	URL	: Belajarkuy.com
+*/
+body{
+	font-family: 'Lato',sans-serif;
+}
+.navbar .navbar-brand img{
+	width: 250px;
+}
+.navbar-nav{
+	margin: 0 0 0 50px;
+}
+.navbar-light .navbar-nav .nav-link {
+    color: #fff;
+    font-weight: bolder;
+    font-size: 18px;
+    text-shadow: 1px 1px #333;
+    letter-spacing: 2px;
+    margin-right: 25px;
+}
+.bg-orange{
+	background: rgba(243,126,41,1);
+};
+	.btn-blued:hover{
+		background-color: #5179b0;
+	}
+.carousel-inner{
+  width:100%;
+  height: 600px !important;
+}
+.carousel-caption{
+	text-shadow: 1px 1px #333;
+}
+.carousel-caption h2{
+	margin-top: -200px;
+	font-size: 48px;
+	font-weight: bolder;
+}
+.overlay{
+	background: rgba(243,126,41,0.4);
+	    height: 100%;
+	    z-index: 2;
+}
+.carousel-caption p{
+	font-size: 18px;
+	letter-spacing: 2px;
+	text-shadow: 2px 2px #333;
+}
+.kuy-sharing{
+	border-top: 1px solid #eae9e9;
+	background-color: #fff;
+	padding: 50px 0;
+}
+.kuy-sharing h2{
+	font-size: 36px;
+	margin-bottom: 50px;
+}
+.kuy-sharing .detail{
+	border:1px solid #eae9e9;
+	padding: 15px;
+}
+.kuy-sharing .detail img{
+	margin-bottom: 10px;
+}
+.kuy-sharing .detail h3{
+	font-size: 32px;
+	margin-bottom: 20px;
+}
+.kuy-sharing .detail h5{
+	margin-top: 15px;
+	font-size: 18px;
+}
+.kuy-sharing .bar {
+    position: relative;
+    height: 3px;
+    width: 100%;
+    background: #e7e9eb;
+    border-radius: 2px;
+    margin: 15px 0 10px 0;
+}
+.kuy-sharing .progress {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #f37e29;
+    border-radius: 5px;
+}
+.kuy-sharing a{
+	color: #333;
+}
+.kuy-sharing a:hover{
+	text-decoration: none;
+}
+.kuy-sharing .sidebar-right{
+	margin:0;
+	padding: 0;
+}
+.kuy-page{
+	border-top: 1px solid #eae9e9;
+	background-color: #fff;
+	padding: 120px 0 50px 0;
+}
+.kuy-page h2{
+	font-size: 36px;
+	margin-bottom: 50px;
+}
+.kuy-page .detail{
+	border:1px solid #eae9e9;
+	padding: 15px;
+}
+.kuy-page .detail img{
+	margin-bottom: 10px;
+}
+.kuy-page .detail h3{
+	font-size: 32px;
+	margin-bottom: 20px;
+}
+.kuy-page .detail h5{
+	margin-top: 15px;
+	font-size: 18px;
+}
+.kuy-ide{
+	margin: 10px 0;
+	background-color: #eae9e9;
+}
+.container-fluid-full {
+    width: 100%;
+    padding-right: 0;
+    padding-left: 0;
+    margin-right: auto;
+    margin-left: auto;
+}
+.kuy-ide-left{
+		background:url('http://localhost/belajarkuy/asset/images/bg-ide-baik.jpeg');
+		background-position: center;
+		background-size: cover;
+		height: 500px;
+		margin-left: -15px;
+}
+.kuy-ide-left .overlay{
+		background: rgba(243,126,41,0.65);
+	    height: 100%;
+	    z-index: 2;
+	}
+.kuy-ide-left .overlay h2{
+		font-size: 48px;
+		text-align: center;
+		opacity: 1;
+		color: #fff;
+		position: absolute;
+		margin: 240PX 0 0 100px;
+		font-weight: bold;
+	}
+	.kuy-ide .row {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin-right: 0;
+    margin-left: 0;
+}
+.row-message{
+	border-bottom: 1px dashed #eae9e9;
+	padding: 0 0 20px 0;
+}
+.kontak{
+		margin-top: -10px;
+		background:url('http://localhost/belajarkuy/asset/images/bg-kontak.jpeg');
+		background-position: center;
+		background-size: cover;
+		height: 450px;	
+	}
+	.kontak .overlay{
+		background: rgba(243,126,41,0.9);
+	    height: 100%;
+	    z-index: 2;
+	    padding: 50px 0 0 0;
+	}
+	.kontak .overlay h2{
+		font-size: 48px;
+		opacity: 1;
+		color: #fff;
+		font-weight: bolder;
+		text-align: center;
+		margin-bottom: 50px;
+	}
+	.kontak .overlay .form-control{
+		background:transparent;
+		border-radius: 0;
+		color: #fff;
+		-moz-border-radius:0;
+		-webkit-border-radius:0;
+		-o-border-radius: 0;
+	}
+	.kontak .overlay .form-control::placeholder{
+		color: #fff;
+		font-size: 16px;
+	}
+	.kontak .overlay textarea.form-control{
+		background:transparent;
+		color: #fff;
+		border-radius: 0;
+		-moz-border-radius:0;
+		-webkit-border-radius:0;
+		-o-border-radius: 0;
+		min-height: 100px;
+		min-width: 100%;
+		max-height: 100px;
+		max-width: 100%;
+	}
+	.kontak .overlay .btn-blued{
+		border:0;
+		background-color: #1cbbb1;
+		border-radius: 0;
+		-moz-border-radius:0;
+		-webkit-border-radius:0;
+		-o-border-radius: 0;
+	}
+	.footer{
+		background-color: #fff;
+		padding: 35px 0;
+	}
+	.footer .copyright{
+		color: #787878;
+		font-size: 14px;
+		letter-spacing: 1px;
+	}
+	.footer .copyright a{
+		color: #787878;
+	}
+	.footer .copyright a:hover{
+		color: #fff;
+		text-decoration: none;
+	}
+	.btn-login{
+		background: rgba(243,126,41,0.99);
+		color: #fff;
+	}
