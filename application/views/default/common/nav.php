@@ -73,6 +73,7 @@
               <a class="dropdown-item" href="<?php  echo base_url('user/idea')?>">Ide Baik</a>
               <a class="dropdown-item" href="<?php  echo base_url('user/participant')?>">Peserta</a>
               <a class="dropdown-item" href="<?php  echo base_url('user/payment')?>">Pembayaran</a>
+              <a class="dropdown-item" href="<?php  echo base_url('user/logout')?>">Keluar</a>
             </div>
           </li>
           <?php

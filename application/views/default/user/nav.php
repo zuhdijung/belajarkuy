@@ -5,3 +5,4 @@
 <div><a href="<?php echo base_url('user/idea')?>">Ide Baik</a></div>
 <div><a href="<?php echo base_url('user/particpant')?>">Peserta</a></div>
 <div><a href="<?php echo base_url('user/payment')?>">Pembayaran</a></div>
+<div><a href="<?php echo base_url('user/logout')?>">Keluar</a></div>
