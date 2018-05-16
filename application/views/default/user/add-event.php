@@ -1,3 +1,4 @@
+<script src='<?php echo base_url('asset/tinymce/js/tinymce/tinymce.min.js')?>'></script>
 	<div class="kuy-page">
 		<div class="container-fluid">
 			<div class="text-center">
@@ -12,7 +13,7 @@
 								<?php echo form_open(''); ?>
 								<div class="form-group">
 									<label>Nama Event</label>
-									<input type="text" name="name_sharing" placeholder="Nama Event" class="form-control">
+									<input type="text" name="name_sharing" class="form-control">
 								</div>
 								<div class="form-group">
 									<label>Tanggal Event</label>
@@ -24,23 +25,24 @@
 								</div>
 								<div class="form-group">
 									<label>Deskripsi Event</label>
-									<textarea class="form-control"></textarea>
+									<textarea class="form-control textarea"></textarea>
 								</div>
 								<div class="form-group">
 									<label>Target Peserta</label>
-									<input type="number" name="target_participant" placeholder="Target Peserta" class="form-control" min=1>
+									<input type="number" name="target_participant" class="form-control" min=1>
 								</div>
 								<div class="form-group">
 									<label>Ada Harga Tiket Masuk?</label><br />
-									<label><input type="radio" name="ticket_paid" value="0"> Ada</label>
-									<label><input type="radio" name="ticket_paid" value="1"> Tidak</label>
+									<label><input type="radio" name="ticket_paid" value="0" disabled=""> Ada</label>
+									<label><input type="radio" name="ticket_paid" value="1" checked=""> Tidak</label>
 								</div>
 								<div class="form-group">
 									<label>Harga Tiket (Jika Gratis isi 0)</label>
-									<input type="number" name="name_sharing" placeholder="Harga Tiket" class="form-control" min=0>
+									<input type="number" name="ticket_price" placeholder="Harga Tiket" class="form-control" min=0 value="0" disabled="">
+									<input type="hidden" name="ticket_price" value="0">
 								</div>
 								<div class="form-group">
-									<button class="btn btn-login" type="submit">Ubah</button>
+									<button class="btn btn-login" type="submit">Simpan</button>
 								</div>
 								<?php 
 								echo validation_errors();
@@ -50,22 +52,13 @@
 					</div> <!-- end of detail -->
 				</div>
 				<div class="col-md-4">
-					<div class="detail">
-						<div class="row">
-							<div class="col-md-3">
-								<img src="<?php echo base_url('asset/images/user-male.png') ?>" class="img-fluid">
-							</div>
-							<div class="col-md-9">
-								<h3>{name}</h3>
-								<p>{status}</p>
-								<a href="<?php echo base_url('user/logout/')?>"><button class="btn btn-login">Keluar</button></a>
-							</div>
-						</div>
-					</div>
-					<div class="detail" style="margin-top: 20px;">
-						<?php $this->load->view('default/user/nav');?>
-					</div>
+					<?php $this->load->view('default/user/nav');?>
 				</div>
 			</div> <!-- end of row-->
 		</div> <!-- end of container-fluid -->
 	</div> <!-- end of kuy-sharing -->
+<script>
+  tinymce.init({
+    selector: '.textarea'
+  });
+  </script>

@@ -6,7 +6,7 @@
 			<div class="row">
 				<div class="col-md-8">
 					<div class="detail">
-						<h3 class="text-center">List Event</h3>
+						<h3 class="text-center">Atur Event Dibuat</h3>
 						<div class="row">
 							<div class="col-md-12">
 								<div style="margin-bottom: 25px;">
@@ -25,16 +25,61 @@
 											</tr>
 										</thead>
 										<tbody>
-											<tr>
-												<td>1</td>
-												<td>Workshop MJWJ: Editing Video</td>
-												<td><a href="#" title="List Peserta">12 / 50</a></td>
-												<td>10 Juli 2018</td>
-												<td>Aktif</td>
-												<td>
-													<a href="#">Edit</a>
-												</td>
-											</tr>
+											<?php
+												if($results!=FALSE){
+													$i = 1;
+													foreach ($results as $rows) {
+														?>
+														<tr>
+															<td><?php  echo $i;?></td>
+															<td><?php echo $rows->name_sharing?></td>
+															<td><a href="<?php echo base_url('user/partcipant-event/'.$rows->id_sharing)?>"><?php echo $this->muser->countParticipant($rows->id_sharing).' / '.$rows->target_participant;?></a></td>
+															<td><?php echo date('D, d M Y',strtotime($rows->date_sharing))?></td>
+															<td>
+																<?php
+																	if($rows->status_sharing == 0){
+																		?>
+																		<label class="badge badge-warning">Pending</label>
+																		<?php
+																	}
+																	else if($rows->status_sharing == 1){
+																		?>
+																		<label class="badge badge-info">Aktif</label>
+																		<?php
+																	}
+																	else if($rows->status_sharing == 2){
+																		?>
+																		<label class="badge badge-success">Aktif</label>
+																		<?php
+																	}
+																	else if($rows->status_sharing == 3){
+																		?>
+																		<label class="badge badge-danger">Batal</label>
+																		<?php
+																	}
+																?>
+															</td>
+															<td>
+																<a href="<?php echo base_url('user/view-event/'.$rows->id_sharing)?>" title="Lihat Event">
+																	<i class="oi" data-glyph="eye"></i>
+																</a>
+																<a href="<?php echo base_url('user/edit-event/'.$rows->id_sharing)?>" title="Ubah Event">
+																	<i class="oi" data-glyph="pencil"></i>
+																</a>
+															</td>
+														</tr>
+														<?php
+														$i++;
+													}
+												}
+												else{
+													?>
+													<tr>
+														<td colspan="6">Belum Ada Event yang dibuat</td>
+													</tr>
+													<?php
+												}
+											?>
 										</tbody>
 									</table>
 								</div>
@@ -43,21 +88,7 @@
 					</div> <!-- end of detail -->
 				</div>
 				<div class="col-md-4">
-					<div class="detail">
-						<div class="row">
-							<div class="col-md-3">
-								<img src="<?php echo base_url('asset/images/user-male.png') ?>" class="img-fluid">
-							</div>
-							<div class="col-md-9">
-								<h3>{name}</h3>
-								<p>{status}</p>
-								<a href="<?php echo base_url('user/logout/')?>"><button class="btn btn-login">Keluar</button></a>
-							</div>
-						</div>
-					</div>
-					<div class="detail" style="margin-top: 20px;">
-						<?php $this->load->view('default/user/nav');?>
-					</div>
+					<?php $this->load->view('default/user/nav');?>
 				</div>
 			</div> <!-- end of row-->
 		</div> <!-- end of container-fluid -->

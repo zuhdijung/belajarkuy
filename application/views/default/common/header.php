@@ -7,3 +7,4 @@
     <link href="https://fonts.googleapis.com/css?family=Lato:300" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="<?php echo base_url('asset/default.css')?>">
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link href="<?php echo base_url('asset/open-iconic/font/css/open-iconic.css')?>" rel="stylesheet">
