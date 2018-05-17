@@ -108,9 +108,49 @@ class User extends CI_Controller {
 		$data['name'] = $profile['full_name'];
 		$data['username'] = $profile['username'];
 		$data['email'] = $profile['email'];
+		$data['image_user'] = base_url($profile['image_user']);
 		
 		$data['status'] = 'Active User';
-		$this->parser->parse('default/index', $data);	
+
+		$this->form_validation->set_rules('email','Email','required|valid_email');
+		$this->form_validation->set_rules('name','Name','required');
+
+		if(!$this->form_validation->run())
+			$this->parser->parse('default/index', $data);	
+		else{
+			$config['upload_path'] = './asset/images/image-user/';
+            $config['allowed_types'] = 'gif|jpg|png|jpeg';
+            $config['max_size'] = '1000';
+            $config['file_name'] = 'user-'.$this->mod->urlFriendly($this->input->post('name')).date('Y-m-d_H-i-s');
+            $this->load->library('upload',$config);
+
+            if(!$this->upload->do_upload()){
+            	// save data
+				$data = $_POST;
+				$array = array(
+						'full_name' => $data['name'],
+						'email' => $data['email'],
+					);
+				$this->mod->editData($array,'user','id_user',$this->session->userdata('id_user'));
+				redirect(base_url('user/edit-profile'));
+            }
+            else{
+            	$images = $this->upload->data();
+            	$this->load->helper('file');
+            	if($profile['image_user'] != '')
+            		unlink($profile['image_user']);
+
+				// save data
+				$data = $_POST;
+				$array = array(
+						'full_name' => $data['name'],
+						'email' => $data['email'],
+						'image_user' => 'asset/images/image-user/'.$images['file_name'],
+					);
+				$this->mod->editData($array,'user','id_user',$this->session->userdata('id_user'));
+				redirect(base_url('user/edit-profile'));
+            }
+		}
 	}
 	public function change_password(){
 		if($this->session->userdata('login_user') == FALSE){

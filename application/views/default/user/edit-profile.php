@@ -9,7 +9,14 @@
 						<h3 class="text-center">Form Ubah Profil</h3>
 						<div class="row">
 							<div class="col-md-8 offset-md-2">
-								<?php echo form_open(''); ?>
+								<?php echo form_open_multipart(''); ?>
+								<div class="text-center">
+									<img src="{image_user}" style="width: 150px">
+								</div>
+								<div class="form-group">
+									<label>Ganti Gambar Profil</label>
+									<input type="file" name="userfile" class="form-control">
+								</div>
 								<div class="form-group">
 									<label>Username</label>
 									<input type="text" name="username" placeholder="Username" value="{username}" disabled="" class="form-control">
