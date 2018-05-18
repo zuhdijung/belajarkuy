@@ -136,7 +136,7 @@ class User extends CI_Controller {
             }
             else{
             	$images = $this->upload->data();
-            	$this->load->helper('file');
+            	$this->load->helper ('file');
             	if($profile['image_user'] != '')
             		unlink($profile['image_user']);
 
@@ -162,7 +162,23 @@ class User extends CI_Controller {
 		$profile = $this->mod->getDataWhere('user','id_user',$this->session->userdata('id_user'));
 		$data['name'] = $profile['full_name'];
 		$data['status'] = 'Active User';
-		$this->parser->parse('default/index', $data);	
+
+		$this->form_validation->set_rules('old','Password Lama','required|callback_validPassword');
+		$this->form_validation->set_rules('new','Password Baru','required');
+		$this->form_validation->set_rules('confirm','Konfirmasi Password Baru','required|matches[new]');
+
+		if(!$this->form_validation->run())
+			$this->parser->parse('default/index', $data);	
+		else{
+			$enc = ')(*belajarkuy!@#';
+			$encrypted = md5($enc.$this->input->post('new').$enc);
+			$array = array(
+				'password' => $encrypted
+			);
+			$this->mod->editData($array,'user','id_user',$this->session->userdata('id_user'));
+			$this->session->set_flashdata(array('success_form'=>TRUE));
+			redirect(base_url('user/change-password'));
+		}
 	}
 	public function edit_event(){
 		
@@ -176,5 +192,18 @@ class User extends CI_Controller {
 			);
 			$this->session->set_userdata($array);
 		redirect(base_url('p/login'));
+	}
+	// other function
+	function validPassword(){
+		$username = $this->session->userdata('username');
+		$password = $this->input->post('old');
+		$result = $this->mpage->validLogin($username,$password);
+		if($result != FALSE){
+			return true;
+		}
+		else{
+			$this->form_validation->set_message('validPassword','Password Lama Salah');
+			return false;
+		}
 	}
 }

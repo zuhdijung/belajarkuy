@@ -9,7 +9,11 @@
 						<h3 class="text-center">Form Ganti Password</h3>
 						<div class="row">
 							<div class="col-md-8 offset-md-2">
-								<?php echo form_open(''); ?>
+								<?php echo form_open(''); 
+								if($this->session->flashdata('success_form') == TRUE){
+									echo "Password Berhasil Diganti";
+								}
+								?>
 								<div class="form-group">
 									<label>Password Lama</label>
 									<input type="password" name="old" class="form-control">
